@@ -77,13 +77,26 @@ def imgproc10():
     plt.title('Original Image'), plt.xticks([]), plt.yticks([])
     plt.subplot(122),plt.imshow(erosion,cmap = 'gray')
     plt.title('Erosion Image'), plt.xticks([]), plt.yticks([])
-    plt.show()
+    plt.show()#Affichage
+
+#Dilatation
+def imgproc11():
+    img = cv2.imread('a_letter.png',0) # Chargement image
+    img = cv2.bitwise_not(img) # inversemment img couleur
+    kernel = np.ones((10,10),np.uint8)# Config du noyau
+    dilation = cv2.dilate(img,kernel,iterations = 1) # dilatation img
+    plt.subplot(121),plt.imshow(img,cmap = 'gray')
+    plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+    plt.subplot(122),plt.imshow(dilation,cmap = 'gray')
+    plt.title('Erosion Image'), plt.xticks([]), plt.yticks([])
+    plt.show()#Affichage
 
 
 while (True):
     #imgproc7()
     #imgproc8()
-    imgproc10()
+    #imgproc10()
+    imgproc11()
     if cv2.waitKey(1000) | 0xFF == ord('q'):
         break
     break
