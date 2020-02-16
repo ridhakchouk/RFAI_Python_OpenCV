@@ -1,19 +1,18 @@
 '''
-Created on 16 févr. 2020
+Created on 16 fï¿½vr. 2020
 
 @author: carbo
 '''
-import cv2
+
 import numpy as np
-from matplotlib import pyplot as plt
-from _collections import defaultdict
+import cv2 as cv
 
-def imgproc16():   
-    img = cv2.imread('home.jpg')
-    gray= cv2.cvtColor(img,cv.COLOR_BGR2GRAY)
-    sift = cv2.xfeatures2d.SIFT_create()
-    kp = sift.detect(gray,None)
-    img=cv2.drawKeypoints(gray,kp,img)
-    cv2.imwrite('sift_keypoints.jpg',img)
-
+def imgproc16():
+    img = cv.imread('castle.jpg') # chargement image
+    gray= cv.cvtColor(img,cv.COLOR_BGR2GRAY)# conversion en niveau de gris
+    sift = cv.xfeatures2d.SIFT_create()#calcul des points 
+    kp = sift.detect(gray,None)#dÃ©tection des points cle
+    img=cv.drawKeypoints(gray,kp,img)#encerclement des points cle
+    cv.imwrite('sift_keypoints.jpg',img)#sauvegarde resultat
+    
 imgproc16()
