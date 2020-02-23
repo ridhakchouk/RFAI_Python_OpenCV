@@ -34,5 +34,5 @@ def imgproc13():
             break
         print("fin iteration") # affichage dans la console pour 
         #savoir quand une itération est terminé
-        
+        print(non_zero_val)
 imgproc13()
